@@ -16,8 +16,8 @@ import {
   Typography,
 } from "@mui/material";
 
-import menuItems from "./menuItemsConstants";
-import itemProps from "./types/itemProps";
+import menuItems from "../../../misc/menuItemsConstants";
+import itemProps from "../../../misc/types/itemProps";
 
 export default function Menu() {
   const listItems = (_items: Array<itemProps>) => {
