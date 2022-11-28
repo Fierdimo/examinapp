@@ -20,6 +20,12 @@ const dashboardItems: Array<itemProps> = [
       icon: <MonetizationOnOutlined />,
       iconColor: "white",
     },
+    {
+      title: "Adicional",
+      titleColor: "white",
+      icon: <MonetizationOnOutlined />,
+      iconColor: "white",
+    },
   ];
 
   const facturasItems: Array<itemProps> =  [

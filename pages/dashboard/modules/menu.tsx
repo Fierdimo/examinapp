@@ -48,7 +48,6 @@ export default function Menu() {
   ) => {
     return (
       <Accordion
-        disableGutters={true}
         elevation={0}
         sx={{
           background: 'transparent',
@@ -102,9 +101,7 @@ export default function Menu() {
     <Stack sx={{ p: 2, pl: 0 }}>
       <Typography textAlign={"center"} variant={"h5"} sx={{ color: "white", mb:2 }}>
         TuPagina.com
-      </Typography>
-
-      
+      </Typography>      
 
       {acordeon("Dashboard", menuItems.dashboardItems, false, true)}
 
@@ -116,6 +113,8 @@ export default function Menu() {
 
       {acordeon("Facturas", menuItems.facturasItems, false)}
       {acordeon("Correo", menuItems.correoItems, false)}
+
+      
     </Stack>
   );
 }
