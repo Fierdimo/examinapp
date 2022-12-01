@@ -1,13 +1,19 @@
-import { Button, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Grid } from "@mui/material";
 
-export default function Body({...props}){
-   
+export default function Body({...props}){   
 
     return(
-        <Box>
-            <Typography>This is a body</Typography>
-            <Button onClick={()=> props.setOpenDrawer(true)}>open drawer</Button>
-        </Box>
+        
+      <Grid container textAlign={'center'} height={'100%'}>
+        <Grid item xs={4} border={1} >
+            content
+        </Grid>
+        <Grid item xs={4} border={1}>
+            content 
+        </Grid>
+        <Grid item xs={4} border={1}>
+            content 
+        </Grid>
+      </Grid>
     )
 }

@@ -5,8 +5,6 @@ import {
   AccordionSummary,
   Box,
   Chip,
-  Divider,
-  Grid,
   List,
   ListItem,
   ListItemButton,
@@ -19,14 +17,20 @@ import {
 import menuItems from "../../../misc/menuItemsConstants";
 import itemProps from "../../../misc/types/itemProps";
 
-export default function Menu() {
+export default function Menu({ ...props }) {
   const listItems = (_items: Array<itemProps>) => {
     return _items.map((_item) => (
-      <ListItem disablePadding key={_item.title} 
-      sx={{"&:hover": {
-        borderRadius: "50px",
-        backgroundColor: "#474461",
-      },}}>
+      <ListItem
+        disablePadding
+        key={_item.title}
+        sx={{
+          ml: props.drawerState ? 0 : -1,
+          "&:hover": {
+            borderRadius: "50px",
+            backgroundColor: "#474461",
+          },
+        }}
+      >
         <ListItemButton>
           <ListItemIcon sx={{ color: _item.iconColor }}>
             {_item.icon}
@@ -50,10 +54,10 @@ export default function Menu() {
       <Accordion
         elevation={0}
         sx={{
-          background: 'transparent',
-          '&:before': {
-            display: 'none',
-        }
+          background: "transparent",
+          "&:before": {
+            display: "none",
+          },
         }}
       >
         <Box
@@ -61,6 +65,8 @@ export default function Menu() {
             border: _border ? 1 : 0,
             borderLeft: 0,
             color: "#CECBE3",
+            display: props.drawerState ? "block" : "flex",
+            justifyContent: "start",
           }}
         >
           <AccordionSummary
@@ -89,8 +95,7 @@ export default function Menu() {
             )}
           </AccordionSummary>
         </Box>
-
-        <AccordionDetails>
+        <AccordionDetails sx={{ mt: -3, mb: -5 }}>
           <List dense>{listItems(__Items)}</List>
         </AccordionDetails>
       </Accordion>
@@ -99,22 +104,17 @@ export default function Menu() {
 
   return (
     <Stack sx={{ p: 2, pl: 0 }}>
-      <Typography textAlign={"center"} variant={"h5"} sx={{ color: "white", mb:2 }}>
-        TuPagina.com
-      </Typography>      
-
-      {acordeon("Dashboard", menuItems.dashboardItems, false, true)}
-
-      <Divider textAlign="left">
-        <Typography variant={"button"} sx={{ fontSize: 12, color: "white" }}>
-          Apps y páginas
-        </Typography>
-      </Divider>
-
+      <Typography
+        textAlign={"center"}
+        variant={"h5"}
+        sx={{ color: "white", mb: 2 }}
+      >
+        {props.drawerState ? "Examinapp" : ""}
+        <HomeOutlined sx={{ml:2}} />
+      </Typography>
+      :{acordeon("Dashboard", menuItems.dashboardItems, false, true)}
       {acordeon("Facturas", menuItems.facturasItems, false)}
       {acordeon("Correo", menuItems.correoItems, false)}
-
-      
     </Stack>
   );
 }
