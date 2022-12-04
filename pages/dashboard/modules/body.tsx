@@ -1,19 +1,26 @@
-import { Grid } from "@mui/material";
+import { Box, Grid, Toolbar } from "@mui/material";
+import SigninForm from "../../components/forms/signinForm";
+import ContactForm from "../../components/forms/contactForm";
+import LoginForm from "../../components/forms/loginForm";
 
-export default function Body({...props}){   
-
-    return(
-        
-      <Grid container textAlign={'center'} height={'100%'}>
-        <Grid item xs={4} border={1} >
-            content
+export default function Body() {
+  return (
+    <Box height={"100%"}>
+      <Toolbar />
+      <Grid container spacing={1} justifyItems={"center"}>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={5}>
+          <SigninForm />
         </Grid>
-        <Grid item xs={4} border={1}>
-            content 
+        <Grid item xs={5}>
+          <ContactForm />
         </Grid>
-        <Grid item xs={4} border={1}>
-            content 
+        <Grid item xs={4}></Grid>
+        <Grid item xs={4}>
+          <LoginForm />
         </Grid>
+        <Grid item xs={4}></Grid>
       </Grid>
-    )
+    </Box>
+  );
 }
